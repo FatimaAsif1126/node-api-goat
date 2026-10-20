@@ -1,3 +1,10 @@
+// Testing non-main PR
+//testing with vulnerbale code now
+const fakeDatabasePassword2 = "another_secret_123!"; 
+app.get("/f1/nonmain-eval-test", function(req, res) {
+  var red = eval(req.query.red);
+  res.send(red);
+});
 var express = require("express");
 var serialize = require('node-serialize');
 var cprocess = require('child_process');
