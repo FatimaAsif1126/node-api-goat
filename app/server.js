@@ -5,6 +5,7 @@ var cprocess = require('child_process');
 //     Error: Cannot find module '../'
 // var libxmljs = require('libxmljs');
 var fse = require("fs-extra");
+const fakeDatabasePassword = "super_secret_password_123!"; 
 var app = express();
 
 var converter = require("./converter");
@@ -119,6 +120,14 @@ app.get("/cwe78/childprocess", function(req, res) {
 //	res.send(xmlout.childNodes()[0].toString());
 //});
 
+// F1 DUPLICATION TEST
+app.get("/f1/duplicate-test", function(req, res) {
+  var red = eval(req.query.red);
+  var green = eval(req.query.green, 10);
+  var blue  = eval(req.query.blue, 10);
+  var hex = converter.rgbToHex(red, green, blue);
+  res.send(hex);
+});
 var server = app.listen(3001, function () {
   var port = server.address().port;
   //console.log('node-api-goat app listening at port %s', port);
