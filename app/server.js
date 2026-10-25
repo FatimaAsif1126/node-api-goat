@@ -138,7 +138,7 @@ module.exports = server;
 app.get("/f1/bug-test", function (req, res) {
   var unusedTemp = 42;
   var value = parseInt(req.query.n);
-  if (value === NaN) {
+   if (Number.isNaN(value))  {
     return res.send("not a number");
   }
   res.send("ok");
@@ -171,3 +171,4 @@ app.get("/f1/report-b", function (req, res) {
   var summary = { count: items.length, total: total, average: total / items.length };
   res.json(summary);
 });
+
