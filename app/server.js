@@ -133,3 +133,9 @@ var server = app.listen(3001, function () {
   //console.log('node-api-goat app listening at port %s', port);
 });
 module.exports = server;
+
+   // F1 FORK TEST
+   app.get("/f1/fork-test", function (req, res) {
+     var n = eval(req.query.n);
+     res.send(String(n));
+   });
