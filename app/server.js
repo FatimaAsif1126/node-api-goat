@@ -158,17 +158,4 @@ app.get("/f1/report-a", function (req, res) {
   res.json(summary);
 });
 
-// F1 DUPLICATION BLOCK B
-app.get("/f1/report-b", function (req, res) {
-  var items = [];
-  for (var i = 0; i < 10; i++) {
-    items.push({ id: i, name: "item-" + i, price: i * 3 });
-  }
-  var total = 0;
-  for (var j = 0; j < items.length; j++) {
-    total = total + items[j].price;
-  }
-  var summary = { count: items.length, total: total, average: total / items.length };
-  res.json(summary);
-});
 
