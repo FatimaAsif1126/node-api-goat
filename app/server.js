@@ -133,3 +133,41 @@ var server = app.listen(3001, function () {
   //console.log('node-api-goat app listening at port %s', port);
 });
 module.exports = server;
+
+// F1 BUG AND SMELL TEST
+app.get("/f1/bug-test", function (req, res) {
+  var unusedTemp = 42;
+  var value = parseInt(req.query.n);
+  if (value === NaN) {
+    return res.send("not a number");
+  }
+  res.send("ok");
+});
+
+// F1 DUPLICATION BLOCK A
+app.get("/f1/report-a", function (req, res) {
+  var items = [];
+  for (var i = 0; i < 10; i++) {
+    items.push({ id: i, name: "item-" + i, price: i * 3 });
+  }
+  var total = 0;
+  for (var j = 0; j < items.length; j++) {
+    total = total + items[j].price;
+  }
+  var summary = { count: items.length, total: total, average: total / items.length };
+  res.json(summary);
+});
+
+// F1 DUPLICATION BLOCK B
+app.get("/f1/report-b", function (req, res) {
+  var items = [];
+  for (var i = 0; i < 10; i++) {
+    items.push({ id: i, name: "item-" + i, price: i * 3 });
+  }
+  var total = 0;
+  for (var j = 0; j < items.length; j++) {
+    total = total + items[j].price;
+  }
+  var summary = { count: items.length, total: total, average: total / items.length };
+  res.json(summary);
+});
