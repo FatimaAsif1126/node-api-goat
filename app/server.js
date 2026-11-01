@@ -133,3 +133,12 @@ var server = app.listen(3001, function () {
   //console.log('node-api-goat app listening at port %s', port);
 });
 module.exports = server;
+
+// F2 T1 RELIABILITY TEST
+app.get("/f2/t1", function (req, res) {
+  var value = parseInt(req.query.n, 10);
+  if (value === NaN) {
+    return res.send("not a number");
+  }
+  res.send("ok");
+});
