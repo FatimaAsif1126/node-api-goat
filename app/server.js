@@ -133,3 +133,12 @@ var server = app.listen(3001, function () {
   //console.log('node-api-goat app listening at port %s', port);
 });
 module.exports = server;
+
+// F2 T3 MAINTAINABILITY TEST
+function f2t3() {
+  var a1 = 1;
+  var a2 = 2;
+  var a3 = 3;
+  var a4 = 4;
+  var a5 = 5;
+}
