@@ -133,3 +133,50 @@ var server = app.listen(3001, function () {
   //console.log('node-api-goat app listening at port %s', port);
 });
 module.exports = server;
+
+//F2-T6 Duplication test fail only
+function summarizeOrdersFirst(orders) {
+  let total = 0;
+  let count = 0;
+  let highest = 0;
+  let lowest = Number.MAX_SAFE_INTEGER;
+  for (const order of orders) {
+    if (order.amount > 0) {
+      total += order.amount;
+      count += 1;
+      if (order.amount > highest) {
+        highest = order.amount;
+      }
+      if (order.amount < lowest) {
+        lowest = order.amount;
+      }
+    }
+  }
+  const average = count > 0 ? total / count : 0;
+  return { total, count, highest, lowest, average };
+}
+
+function summarizeOrdersSecond(orders) {
+  let total = 0;
+  let count = 0;
+  let highest = 0;
+  let lowest = Number.MAX_SAFE_INTEGER;
+  for (const order of orders) {
+    if (order.amount > 0) {
+      total += order.amount;
+      count += 1;
+      if (order.amount > highest) {
+        highest = order.amount;
+      }
+      if (order.amount < lowest) {
+        lowest = order.amount;
+      }
+    }
+  }
+  const average = count > 0 ? total / count : 0;
+  return { total, count, highest, lowest, average };
+}
+
+const sampleOrders = [{ amount: 10 }, { amount: 25 }];
+globalThis.summaryFirst = summarizeOrdersFirst(sampleOrders);
+globalThis.summarySecond = summarizeOrdersSecond(sampleOrders);
