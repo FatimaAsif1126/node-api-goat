@@ -133,3 +133,18 @@ var server = app.listen(3001, function () {
   //console.log('node-api-goat app listening at port %s', port);
 });
 module.exports = server;
+//f2-t5-coverage test
+function applyDiscount(price, percent) {
+  if (price <= 0) {
+    return 0;
+  }
+  if (percent < 0 || percent > 100) {
+    return price;
+  }
+  const reduction = price * (percent / 100);
+  const finalPrice = price - reduction;
+  return Math.round(finalPrice * 100) / 100;
+}
+
+globalThis.discountedPrice = applyDiscount(80, 25);
+##
