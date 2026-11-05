@@ -137,7 +137,7 @@ module.exports = server;
 // F3 T1 BLOCKED PR TEST
 app.get("/f3/t1", function (req, res) {
   var value = parseInt(req.query.n, 10);
-  if (value === NaN) {
+     if (Number.isNaN(value)) { 
     return res.send("not a number");
   }
   res.send("ok");
