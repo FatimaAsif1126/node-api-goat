@@ -133,3 +133,12 @@ var server = app.listen(3001, function () {
   //console.log('node-api-goat app listening at port %s', port);
 });
 module.exports = server;
+
+// F3 T1 BLOCKED PR TEST
+app.get("/f3/t1", function (req, res) {
+  var value = parseInt(req.query.n, 10);
+  if (value === NaN) {
+    return res.send("not a number");
+  }
+  res.send("ok");
+});
