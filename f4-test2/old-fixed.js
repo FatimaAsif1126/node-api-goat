@@ -1,5 +1,5 @@
-function midCodeV2(n) {
-  const unusedMidV2 = 42;
+function oldCodeV4(n) {
+  const unusedOldV4 = 42;
   let total = 1;
   total = 2;
   if (n === n) {
@@ -7,4 +7,4 @@ function midCodeV2(n) {
   }
   return 0;
 }
-module.exports = midCodeV2;
+module.exports = oldCodeV4;
